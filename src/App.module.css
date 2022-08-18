@@ -1,0 +1,94 @@
+
+.red {
+  color: red
+}
+.black {
+  color: black
+}
+.scoreboard {
+  border: 3px solid #2a638f;
+  border-radius: 20px;
+  width: 300px;
+  height: 280px;
+  margin: 20px;
+}
+.counter {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 280px;
+  height: 50px;
+  background: #2a638f;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  width: 270px;
+  height: 90px;
+  border: 3px solid #2a638f;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.button {
+  font-size: 15px;
+  width: 100px;
+  height: 45px;
+  border: 3px solid #2a638f;
+  border-radius: 15px;
+}
+.settings {
+  border: 3px solid #2a638f;
+  border-radius: 20px;
+  width: 300px;
+  height: 280px;
+  margin: 20px;
+}
+.values {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 280px;
+  height: 150px;
+  background: #2a638f;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+.inputName {
+  font-size: 20px;
+  color: white;
+
+}
+.input {
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  border: 3px solid #2a638f;
+  border-radius: 15px;
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 15px;
+
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 25px;
+}
+.white {
+  color: white;
+}
