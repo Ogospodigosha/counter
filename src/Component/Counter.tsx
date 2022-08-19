@@ -1,13 +1,22 @@
 import React from 'react';
 import style from "./../App.module.css" ;
+import {StatusType} from "../App";
+
 type CounterPropsType = {
-    value: number
+    count: number
     maxValue: number
+    status: StatusType
+    startValue: number
+    setCount: (value: number)=>void
 }
 
-export const Counter: React.FC<CounterPropsType> = ({value, maxValue}) => {
+export const Counter: React.FC<CounterPropsType> = ({count, maxValue, status, startValue, setCount }) => {
 
     return (
-        <div className={value === maxValue ? style.red : style.white}>{value}</div>
-    )
-}
+
+        <div className={count === maxValue ? style.error : style.white}>
+            {count}
+        </div>
+
+)
+                }

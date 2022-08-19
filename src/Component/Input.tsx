@@ -4,18 +4,20 @@ import {ChangeEvent} from 'react';
 type InputPropsType={
     value:number
     callback: (value:number)=>void
+    error?: boolean;
 
 }
 export const Input = (props:InputPropsType) => {
+
     const onChangeHendler=(event: ChangeEvent<HTMLInputElement>)=>{
-       // console.log(typeof(event.currentTarget.valueAsNumber))
         props.callback(event.currentTarget.valueAsNumber)
 
     }
     return (
         <div>
-                <input type="number" onChange={onChangeHendler} className ={style.input} value={props.value}/>
+                <input type="number"  onChange={onChangeHendler} className ={`${style.input}  ${props.error ? style.errorInput : ""}`} value={props.value}/>
         </div>
     );
 };
+
 

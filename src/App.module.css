@@ -91,4 +91,13 @@
 }
 .white {
   color: white;
+  font-size: 20px;
+}
+.error {
+  color: red;
+}
+.errorInput {
+input:[type"number"];
+  background-color: red
+
 }
