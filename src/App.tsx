@@ -4,7 +4,7 @@ import {Scoreboard} from './Component/Scoreboard';
 import {Settings} from "./Component/Settings";
 
 export type StatusType = 'counter' | 'error' | "set"
-
+//
 function App() {
     const [startValue, setStartValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(5)
