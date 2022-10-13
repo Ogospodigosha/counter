@@ -2,21 +2,25 @@ import React from 'react';
 import style from "./../App.module.css" ;
 import {Input} from "./Input";
 import {Button} from "./Button";
-import {StatusType} from "../App";
+import {StatusType} from "../AppWithRedux";
+import { useDispatch } from 'react-redux';
+import {EnableCountStatusAC, ErrorAC} from "../state/reducer";
 type SettingsPropsType = {
     count: number
     startValue: number
     maxValue: number
-    ChangeStartValue: (value: number)=>void
-    ChangeMaxValue: (value: number)=> void
+    ChangeStartValue: (value: number, status: StatusType)=>void
+    ChangeMaxValue: (value: number, status: StatusType )=> void
     status: StatusType
-    setStatus: (status: StatusType)=> void
-    setCount: (count: number)=>void
-    reset: ()=> void
 }
 export const Settings = (props:SettingsPropsType) => {
+
+    const dispatch = useDispatch()
     if (props.startValue > props.maxValue || props.startValue < 0 || props.startValue === props.maxValue)  {
-        props.setStatus("error")
+        dispatch(ErrorAC('error'))
+    }
+    const reset = ()=>{
+        dispatch({type:'RESET'})
     }
     return (
         <div className={style.settings}>
@@ -42,7 +46,7 @@ export const Settings = (props:SettingsPropsType) => {
                 </div>
             </div>
             <div>
-               <Button name={"set"} callback={()=>props.setStatus('counter')} disabled={props.status === "error" ? true : false} setCount={props.setCount} count={props.count} reset={props.reset}/>
+               <Button name={"set"} callback={()=>{dispatch(EnableCountStatusAC('counter'))}} disabled={props.status === "error" ? true : false}  count={props.count} reset={reset}/>
             </div>
         </div>
     );

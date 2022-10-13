@@ -2,19 +2,17 @@ import React from 'react';
 import {Button} from "./Button";
 import {Counter} from "./Counter";
 import style from "./../App.module.css";
-import {StatusType} from "../App";
+import {StatusType} from "../AppWithRedux";
+import { useDispatch } from 'react-redux';
 export type ScoreboardPropsType = {
     count: number
     startValue: number
     maxValue: number
     increment: () => void
-    reset: () => void
     status: StatusType
-    setStatus: (status: StatusType)=> void
-    setCount: (value: number)=>void
-
 }
 export const Scoreboard = (props:ScoreboardPropsType) => {
+    const dispatch = useDispatch()
     return (
         <div className={style.scoreboard}>
             <div className={style.counter}>
@@ -26,17 +24,20 @@ export const Scoreboard = (props:ScoreboardPropsType) => {
                         <div className={style.white}>
                             Enter values and press "SET"
                         </div> :
-                <Counter count={props.count} maxValue={props.maxValue} status ={props.status} startValue={props.startValue} setCount={props.setCount}/>}
+                <Counter count={props.count} maxValue={props.maxValue} />}
             </div>
             <div className={style.buttons}>
                 <div>
                     <Button name={'INC'}
                             callback={props.increment}
-                            disabled={props.count === props.maxValue} setCount={props.setCount} count={props.count} reset={props.reset}/>
+                            // disabled={props.count === props.maxValue} setCount={props.setCount} count={props.count} reset={props.reset}/>
+                            disabled={props.count === props.maxValue} count={props.count} />
+
                 </div>
                 <div>
                     <Button name={'RESET'}
-                            callback={props.reset} setCount={props.setCount} count={props.count} reset={props.reset}
+                            callback={()=>{dispatch({type:'RESET'})}}  count={props.count}
+
                             />
                 </div>
             </div>

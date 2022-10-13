@@ -1,16 +1,13 @@
 import React from 'react';
 import style from "./../App.module.css" ;
-import {StatusType} from "../App";
+import {StatusType} from "../AppWithRedux";
 
 type CounterPropsType = {
     count: number
     maxValue: number
-    status: StatusType
-    startValue: number
-    setCount: (value: number)=>void
 }
 
-export const Counter: React.FC<CounterPropsType> = ({count, maxValue, status, startValue, setCount }) => {
+export const Counter: React.FC<CounterPropsType> = ({count, maxValue}) => {
 
     return (
 

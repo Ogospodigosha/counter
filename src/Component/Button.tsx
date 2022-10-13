@@ -5,12 +5,12 @@ type ButtonPropsType = {
     callback: ()=> void
     disabled?: boolean
     count: number
-    setCount: (count: number)=>void
-    reset: ()=>void
+    reset?: ()=>void
 }
 export const Button = (props:ButtonPropsType ) => {
+
     const onClickHendler=()=>{
-        props.reset()
+         props.reset?.()
         props.callback()
 
     }
